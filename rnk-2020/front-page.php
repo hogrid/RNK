@@ -168,8 +168,8 @@
 					$categorias = array(
 						array(
 							'nome' => 'Pilotos',
-							'campo' => 'planilha_pilotos_home',
-							'fallback' => array('planilha_pilotos_superfinal', 'planilha_pilotos_regular')
+							'campo' => 'planilha_pilotos_superfinal',
+							'fallback' => array('planilha_pilotos_regular', 'planilha_pilotos_2_turno', 'planilha_pilotos_1_turno')
 						),
 						array(
 							'nome' => 'ELITE 90kg',
@@ -204,17 +204,24 @@
 					);
 
 					$slides_output = array();
+					$dados_por_ano = array();
 
+					// Coletar todos os dados em uma única passagem
 					if( $classificacao_page_id && have_rows('planilhas', $classificacao_page_id) ):
 						while( have_rows('planilhas', $classificacao_page_id) ): the_row();
 
-							// Verificar se deve exibir na home
-							$check = get_sub_field('exibir_classificacao_na_home');
-							if (is_array($check) && in_array("nao", $check)) continue;
+							// Verificar se deve exibir na home (campo true/false)
+							$exibir_home = get_sub_field('exibir_classificacao_na_home');
+							// Pular se desmarcado (false, 0, ou vazio)
+							if (!$exibir_home) continue;
 
 							$ano = get_sub_field('ano');
+							if (empty($ano)) continue;
 
-							// Iterar por cada categoria
+							$ano_int = intval($ano);
+
+							// Coletar arquivos de todas as categorias para este ano
+							$arquivos_ano = array();
 							foreach ($categorias as $categoria) {
 								$file = get_sub_field($categoria['campo']);
 
@@ -226,55 +233,73 @@
 									}
 								}
 
-								if (!$file) continue;
-
-								// Converter URL para caminho local
-								$file_path = str_replace(
-									home_url('/wp-content/uploads/'),
-									ABSPATH . 'wp-content/uploads/',
-									$file['url']
-								);
-
-								if (($handle = fopen($file_path, "r")) !== FALSE) {
-									$slide_content = '<div class="classific-slide" data-categoria="' . esc_attr($categoria['nome']) . '">';
-									$slide_content .= '<div class="classific-home classificacao-table">';
-									$slide_content .= '<table><tr><th></th><th>Piloto</th><th>PTS</th></tr>';
-
-									$row = 0;
-									$has_data = false;
-									while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-										$row++;
-										if ($row >= 15) break;
-										if ($row <= 2) continue;
-
-										if (count($data) >= 3) {
-											$has_data = true;
-											// Pegar posição, nome e última coluna (pontos)
-											$pts_col = count($data) - 1;
-											// Tentar encontrar coluna de pontos (geralmente TOTAL ou última numérica)
-											$pts = isset($data[10]) ? $data[10] : (isset($data[$pts_col]) ? $data[$pts_col] : '');
-											$slide_content .= '<tr>';
-											$slide_content .= '<td>' . esc_html($data[0]) . '</td>';
-											$slide_content .= '<td>' . esc_html($data[1]) . '</td>';
-											$slide_content .= '<td>' . esc_html($pts) . '</td>';
-											$slide_content .= '</tr>';
-										}
-									}
-									fclose($handle);
-
-									$slide_content .= '</table></div></div>';
-
-									if ($has_data) {
-										$slides_output[] = $slide_content;
-									}
+								if ($file && isset($file['url'])) {
+									$arquivos_ano[] = array(
+										'categoria' => $categoria['nome'],
+										'file' => $file
+									);
 								}
 							}
 
-							// Só processar o primeiro ano com dados válidos
-							if (!empty($slides_output)) break;
+							if (!empty($arquivos_ano)) {
+								$dados_por_ano[$ano_int] = $arquivos_ano;
+							}
 
 						endwhile;
 					endif;
+
+					// Ordenar anos do mais recente para o mais antigo e pegar o primeiro
+					if (!empty($dados_por_ano)) {
+						krsort($dados_por_ano);
+						reset($dados_por_ano);
+						$ano_mais_recente = key($dados_por_ano);
+						$arquivos = $dados_por_ano[$ano_mais_recente];
+
+						// Processar arquivos do ano mais recente
+						foreach ($arquivos as $item) {
+							$file = $item['file'];
+							$categoria_nome = $item['categoria'];
+
+							// Converter URL para caminho local
+							$file_path = str_replace(
+								home_url('/wp-content/uploads/'),
+								ABSPATH . 'wp-content/uploads/',
+								$file['url']
+							);
+
+							if (($handle = fopen($file_path, "r")) !== FALSE) {
+								$slide_content = '<div class="classific-slide" data-categoria="' . esc_attr($categoria_nome) . '">';
+								$slide_content .= '<div class="classific-home classificacao-table">';
+								$slide_content .= '<table><tr><th></th><th>Piloto</th><th>PTS</th></tr>';
+
+								$row = 0;
+								$has_data = false;
+								while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+									$row++;
+									if ($row >= 15) break;
+									if ($row <= 2) continue;
+
+									if (count($data) >= 3) {
+										$has_data = true;
+										$pts_col = count($data) - 1;
+										$pts = isset($data[10]) ? $data[10] : (isset($data[$pts_col]) ? $data[$pts_col] : '');
+										$slide_content .= '<tr>';
+										$slide_content .= '<td>' . esc_html($data[0]) . '</td>';
+										$slide_content .= '<td>' . esc_html($data[1]) . '</td>';
+										$slide_content .= '<td>' . esc_html($pts) . '</td>';
+										$slide_content .= '</tr>';
+									}
+								}
+								fclose($handle);
+
+								$slide_content .= '</table></div></div>';
+
+								if ($has_data) {
+									$slides_output[] = $slide_content;
+								}
+							}
+						}
+					}
 
 					// Output dos slides
 					if (!empty($slides_output)) {
@@ -432,7 +457,8 @@
 		const slides = carousel.querySelectorAll('.classific-slide');
 		const totalSlides = slides.length;
 		let currentSlide = 0;
-		let autoplayInterval;
+		let autoplayInterval = null;
+		let isPlaying = false;
 
 		// Criar dots
 		for (let i = 0; i < totalSlides; i++) {
@@ -477,12 +503,24 @@
 			goToSlide(currentSlide - 1);
 		}
 
+		function stopAutoplay() {
+			if (autoplayInterval) {
+				clearInterval(autoplayInterval);
+				autoplayInterval = null;
+			}
+			isPlaying = false;
+		}
+
 		function startAutoplay() {
-			autoplayInterval = setInterval(nextSlide, 5000);
+			// Prevenir múltiplos intervalos
+			if (isPlaying) return;
+			stopAutoplay();
+			isPlaying = true;
+			autoplayInterval = setInterval(nextSlide, 8000); // 8 segundos
 		}
 
 		function resetAutoplay() {
-			clearInterval(autoplayInterval);
+			stopAutoplay();
 			startAutoplay();
 		}
 
@@ -524,7 +562,7 @@
 
 		// Pausar autoplay no hover
 		carousel.parentElement.addEventListener('mouseenter', function() {
-			clearInterval(autoplayInterval);
+			stopAutoplay();
 		});
 
 		carousel.parentElement.addEventListener('mouseleave', function() {

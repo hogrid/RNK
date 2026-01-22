@@ -240,15 +240,19 @@ let getUrlParameter = function getUrlParameter(sParam) {
 	</div>
 </section>
 <style>
-table tr:first-child td,
-table tr:nth-child(2) td{
-	padding: 6px 0;
-    text-align: center;
-    font-size: 16px;
-    color: #58595B;
-    font-weight: 700;
-    text-transform: uppercase;
-    vertical-align: middle;
+/* Estilo do cabeçalho da tabela de classificação */
+.classificacao-table table tr:first-child td,
+.classificacao-table table tr:nth-child(2) td {
+	padding: 8px 4px;
+	text-align: center;
+	font-size: 16px;
+	color: #222429;
+	font-weight: 800;
+	font-style: italic;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	vertical-align: middle;
+	background: #e9e9e9;
 }
 
 /* Categorias badges */
