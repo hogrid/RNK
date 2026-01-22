@@ -1,0 +1,8 @@
+# Ignorar tudo
+*
+
+# Exceto
+!.gitignore
+!docker-compose.yml
+!rnk-2020/
+!rnk-2020/**

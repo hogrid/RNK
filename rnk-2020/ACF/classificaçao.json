@@ -1,0 +1,542 @@
+[
+    {
+        "key": "group_5e43a4913b963",
+        "title": "Arquivo Classificação",
+        "fields": [
+            {
+                "key": "field_5e4d26a1b91b5",
+                "label": "Planilhas",
+                "name": "planilhas",
+                "aria-label": "",
+                "type": "repeater",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "block",
+                "pagination": 0,
+                "min": 0,
+                "max": 0,
+                "collapsed": "",
+                "button_label": "Adicionar linha",
+                "rows_per_page": 20,
+                "sub_fields": [
+                    {
+                        "key": "field_5e4d26ffb91b6",
+                        "label": "Ano",
+                        "name": "ano",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": "",
+                        "parent_repeater": "field_5e4d26a1b91b5"
+                    },
+                    {
+                        "key": "field_5e43a499fa16f",
+                        "label": "Planilha Classificação - Pilotos Regular",
+                        "name": "planilha_pilotos_regular",
+                        "aria-label": "",
+                        "type": "file",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "library": "all",
+                        "min_size": "",
+                        "max_size": "",
+                        "mime_types": "csv",
+                        "parent_repeater": "field_5e4d26a1b91b5"
+                    },
+                    {
+                        "key": "field_5e4d1cba90cab",
+                        "label": "Planilha Classificação - Pilotos Superfinal",
+                        "name": "planilha_pilotos_superfinal",
+                        "aria-label": "",
+                        "type": "file",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "library": "all",
+                        "min_size": "",
+                        "max_size": "",
+                        "mime_types": "csv",
+                        "parent_repeater": "field_5e4d26a1b91b5"
+                    },
+                    {
+                        "key": "field_5e4d1e1d92117",
+                        "label": "Planilha Classificação - Equipes - 1 turno",
+                        "name": "planilha_equipes",
+                        "aria-label": "",
+                        "type": "file",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "library": "all",
+                        "min_size": "",
+                        "max_size": "",
+                        "mime_types": "csv",
+                        "parent_repeater": "field_5e4d26a1b91b5"
+                    },
+                    {
+                        "key": "field_5e74456f2e539",
+                        "label": "Planilha Classificação - Equipes - 2 turno",
+                        "name": "planilha_equipes_2_turno",
+                        "aria-label": "",
+                        "type": "file",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "library": "all",
+                        "min_size": "",
+                        "max_size": "",
+                        "mime_types": "csv",
+                        "parent_repeater": "field_5e4d26a1b91b5"
+                    },
+                    {
+                        "key": "field_5e4f69bac4a3b",
+                        "label": "Planilha Classificação - 1 Turno",
+                        "name": "planilha_pilotos_1_turno",
+                        "aria-label": "",
+                        "type": "file",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "library": "all",
+                        "min_size": "",
+                        "max_size": "",
+                        "mime_types": "csv",
+                        "parent_repeater": "field_5e4d26a1b91b5"
+                    },
+                    {
+                        "key": "field_5e4f6998c4a3a",
+                        "label": "Planilha Classificação - 2 Turno",
+                        "name": "planilha_pilotos_2_turno",
+                        "aria-label": "",
+                        "type": "file",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "library": "all",
+                        "min_size": "",
+                        "max_size": "",
+                        "mime_types": "csv",
+                        "parent_repeater": "field_5e4d26a1b91b5"
+                    },
+                    {
+                        "key": "field_67900001a0001",
+                        "label": "Planilha Classificação - ELITE 90kg - 1 Turno",
+                        "name": "planilha_elite_90kg_1_turno",
+                        "aria-label": "",
+                        "type": "file",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "library": "all",
+                        "min_size": "",
+                        "max_size": "",
+                        "mime_types": "csv",
+                        "parent_repeater": "field_5e4d26a1b91b5"
+                    },
+                    {
+                        "key": "field_67900001a0002",
+                        "label": "Planilha Classificação - ELITE 90kg - 2 Turno",
+                        "name": "planilha_elite_90kg_2_turno",
+                        "aria-label": "",
+                        "type": "file",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "library": "all",
+                        "min_size": "",
+                        "max_size": "",
+                        "mime_types": "csv",
+                        "parent_repeater": "field_5e4d26a1b91b5"
+                    },
+                    {
+                        "key": "field_67900001a0003",
+                        "label": "Planilha Classificação - ELITE 90kg - Superfinal",
+                        "name": "planilha_elite_90kg_superfinal",
+                        "aria-label": "",
+                        "type": "file",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "library": "all",
+                        "min_size": "",
+                        "max_size": "",
+                        "mime_types": "csv",
+                        "parent_repeater": "field_5e4d26a1b91b5"
+                    },
+                    {
+                        "key": "field_67900001a0004",
+                        "label": "Planilha Classificação - ELITE 105kg - 1 Turno",
+                        "name": "planilha_elite_105kg_1_turno",
+                        "aria-label": "",
+                        "type": "file",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "library": "all",
+                        "min_size": "",
+                        "max_size": "",
+                        "mime_types": "csv",
+                        "parent_repeater": "field_5e4d26a1b91b5"
+                    },
+                    {
+                        "key": "field_67900001a0005",
+                        "label": "Planilha Classificação - ELITE 105kg - 2 Turno",
+                        "name": "planilha_elite_105kg_2_turno",
+                        "aria-label": "",
+                        "type": "file",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "library": "all",
+                        "min_size": "",
+                        "max_size": "",
+                        "mime_types": "csv",
+                        "parent_repeater": "field_5e4d26a1b91b5"
+                    },
+                    {
+                        "key": "field_67900001a0006",
+                        "label": "Planilha Classificação - ELITE 105kg - Superfinal",
+                        "name": "planilha_elite_105kg_superfinal",
+                        "aria-label": "",
+                        "type": "file",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "library": "all",
+                        "min_size": "",
+                        "max_size": "",
+                        "mime_types": "csv",
+                        "parent_repeater": "field_5e4d26a1b91b5"
+                    },
+                    {
+                        "key": "field_67900001a0007",
+                        "label": "Planilha Classificação - LIGHT 90kg - 1 Turno",
+                        "name": "planilha_light_90kg_1_turno",
+                        "aria-label": "",
+                        "type": "file",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "library": "all",
+                        "min_size": "",
+                        "max_size": "",
+                        "mime_types": "csv",
+                        "parent_repeater": "field_5e4d26a1b91b5"
+                    },
+                    {
+                        "key": "field_67900001a0008",
+                        "label": "Planilha Classificação - LIGHT 90kg - 2 Turno",
+                        "name": "planilha_light_90kg_2_turno",
+                        "aria-label": "",
+                        "type": "file",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "library": "all",
+                        "min_size": "",
+                        "max_size": "",
+                        "mime_types": "csv",
+                        "parent_repeater": "field_5e4d26a1b91b5"
+                    },
+                    {
+                        "key": "field_67900001a0009",
+                        "label": "Planilha Classificação - LIGHT 90kg - Superfinal",
+                        "name": "planilha_light_90kg_superfinal",
+                        "aria-label": "",
+                        "type": "file",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "library": "all",
+                        "min_size": "",
+                        "max_size": "",
+                        "mime_types": "csv",
+                        "parent_repeater": "field_5e4d26a1b91b5"
+                    },
+                    {
+                        "key": "field_67900001a000a",
+                        "label": "Planilha Classificação - LIGHT 105kg - 1 Turno",
+                        "name": "planilha_light_105kg_1_turno",
+                        "aria-label": "",
+                        "type": "file",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "library": "all",
+                        "min_size": "",
+                        "max_size": "",
+                        "mime_types": "csv",
+                        "parent_repeater": "field_5e4d26a1b91b5"
+                    },
+                    {
+                        "key": "field_67900001a000b",
+                        "label": "Planilha Classificação - LIGHT 105kg - 2 Turno",
+                        "name": "planilha_light_105kg_2_turno",
+                        "aria-label": "",
+                        "type": "file",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "library": "all",
+                        "min_size": "",
+                        "max_size": "",
+                        "mime_types": "csv",
+                        "parent_repeater": "field_5e4d26a1b91b5"
+                    },
+                    {
+                        "key": "field_67900001a000c",
+                        "label": "Planilha Classificação - LIGHT 105kg - Superfinal",
+                        "name": "planilha_light_105kg_superfinal",
+                        "aria-label": "",
+                        "type": "file",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "library": "all",
+                        "min_size": "",
+                        "max_size": "",
+                        "mime_types": "csv",
+                        "parent_repeater": "field_5e4d26a1b91b5"
+                    },
+                    {
+                        "key": "field_67900001a000d",
+                        "label": "Planilha Classificação - LEGENDS",
+                        "name": "planilha_legends",
+                        "aria-label": "",
+                        "type": "file",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "library": "all",
+                        "min_size": "",
+                        "max_size": "",
+                        "mime_types": "csv",
+                        "parent_repeater": "field_5e4d26a1b91b5"
+                    },
+                    {
+                        "key": "field_5f41b8f578409",
+                        "label": "Exibir classificação na Home?",
+                        "name": "exibir_classificacao_na_home",
+                        "aria-label": "",
+                        "type": "checkbox",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "sim": "Sim",
+                            "nao": "Não"
+                        },
+                        "allow_custom": 0,
+                        "default_value": [],
+                        "layout": "vertical",
+                        "toggle": 0,
+                        "return_format": "value",
+                        "save_custom": 0,
+                        "custom_choice_button_text": "Adicionar nova escolha",
+                        "parent_repeater": "field_5e4d26a1b91b5"
+                    },
+                    {
+                        "key": "field_5f41bcd54865b",
+                        "label": "Planilha Classificação - Home",
+                        "name": "planilha_pilotos_home",
+                        "aria-label": "",
+                        "type": "file",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_5f41b8f578409",
+                                    "operator": "==",
+                                    "value": "sim"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "library": "all",
+                        "min_size": "",
+                        "max_size": "",
+                        "mime_types": "csv",
+                        "parent_repeater": "field_5e4d26a1b91b5"
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "template-classificacao.php"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": [
+            "permalink",
+            "the_content",
+            "excerpt",
+            "discussion",
+            "comments",
+            "revisions",
+            "slug",
+            "author",
+            "format",
+            "page_attributes",
+            "featured_image",
+            "categories",
+            "tags",
+            "send-trackbacks"
+        ],
+        "active": true,
+        "description": "",
+        "show_in_rest": 0,
+        "display_title": ""
+    }
+]
